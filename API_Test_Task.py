@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from flask_restful import Resource, Api, reqparse
 import requests
 
@@ -27,8 +27,23 @@ class Rate(Resource):
             print(e)
             return {"400" : "Invalid status value"}
 
+class Subscription(Resource):
+    def post(self):
+        email = request.args.get('email')
+        if not email: return {"400" : "No email provided"}
+        email += "\n"
+        # Add email to the file
+        emails_file = open("emails.txt", 'r+')
+        Lines = emails_file.readlines()
+        for line in Lines:
+            if line == email:
+                return {"400" : "Email already exists"}
+        emails_file.write(email + '\n')
+        emails_file.close()
+        return {"200" : "Email has been succefully added"}
 
 api.add_resource(Rate, "/rate")
+api.add_resource(Subscription, "/subscribe")
 
 
 if __name__ == "__main__":
