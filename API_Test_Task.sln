@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32510.428
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "API_Test_Task", "API_Test_Task.pyproj", "{6CFACE44-2E2A-49EA-95EF-A48117B79D9A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CFACE44-2E2A-49EA-95EF-A48117B79D9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CFACE44-2E2A-49EA-95EF-A48117B79D9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DAB3FCA4-2629-4A90-91AF-FDA685DAE7F6}
+	EndGlobalSection
+EndGlobal
