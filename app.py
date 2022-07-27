@@ -40,7 +40,7 @@ class Rate(Resource):
 class Subscription(Resource):
     def post(self):
         email = request.args.get('email')
-        if not checkEmail(email): return {"400" : "Email has incorrect format. Enter a valid email."}
+        if not checkEmail(email): return {"406" : "Email has incorrect format. Enter a valid email."}
         if not email: return {"400" : "No email provided."}
         email += "\n"
         # Add email to the file
@@ -78,7 +78,7 @@ Subject: Bitcoin price in UAH
                     server.login(self.sender_email, self.password)
                 except Exception as e:
                     print(e)
-                    return {"400" : "Error occured while logging into smtp server"}
+                    return {"401" : "Error occured while logging into smtp server"}
                 for line in Lines:
                     receiver_email = line[:-1]
                     try:
@@ -88,12 +88,12 @@ Subject: Bitcoin price in UAH
             return {"200" : "E-mailʼи відправлено"}
         except Exception as e:
             print(e)
-            return {"400" : "An error occured while SMTP_SSL connection."}
+            return {"418" : "An error occured while SMTP_SSL connection."}
 
     def put(self):
         smtp_server = request.args.get('smtp_server')
         if not smtp_server: return {"400" : "No smtp_server provided."}
-        if not checkEmail(smtp_server): return {"400" : "You provided incorrect email for the smtp_server."}
+        if not checkEmail(smtp_server): return {"401" : "You provided incorrect email for the smtp_server."}
         password = request.args.get('password')
         if not password: return {"400" : "No password provided."}
         self.smtp_server = smtp_server
